@@ -9,7 +9,7 @@ Download the appropriate package for your distro from the [Releases](../../relea
 **Debian / Ubuntu / Mint**
 
 ```sh
-sudo dpkg -i smx-stage-udev-rule_1.0.0_linux_all.deb
+sudo dpkg -i smx-stage-udev-rule_1.0.0_all.deb
 ```
 
 **Fedora / RHEL / openSUSE**
