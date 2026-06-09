@@ -66,4 +66,4 @@ nfpm package --packager archlinux --target dist/
 
 ## License
 
-MIT
+0BSD
