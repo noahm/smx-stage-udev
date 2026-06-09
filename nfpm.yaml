@@ -1,0 +1,16 @@
+name: smx-stage-udev-rule
+version: 1.0.0
+arch: all
+platform: linux
+maintainer: Noah Manneschmidt <noah@manneschmidt.net>
+description: Installs a udev rule for StepManiaX Stages
+license: MIT
+
+contents:
+  - src: 95-smx.rules
+    dst: /usr/lib/udev/rules.d/95-smx.rules
+    file_info:
+      mode: 0644
+
+scripts:
+  postinstall: scripts/postinstall.sh

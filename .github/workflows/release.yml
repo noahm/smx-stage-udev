@@ -1,0 +1,27 @@
+# .github/workflows/release.yml
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install nFPM
+        run: |
+          curl -sfL https://github.com/goreleaser/nfpm/releases/latest/download/nfpm_amd64.deb \
+            -o nfpm.deb && sudo dpkg -i nfpm.deb
+
+      - name: Build packages
+        run: |
+          mkdir dist
+          nfpm package --packager deb --target dist/
+          nfpm package --packager rpm --target dist/
+          nfpm package --packager archlinux --target dist/
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: dist/*
